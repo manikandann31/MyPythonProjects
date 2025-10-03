@@ -1,1 +1,10 @@
-print
+x=10
+y=20
+print(x+y)
+x='10'
+y='20'
+print(x+y)
+price=10
+print(price,type(price))
+is_accepted=True
+print(is_accepted,type(is_accepted))
