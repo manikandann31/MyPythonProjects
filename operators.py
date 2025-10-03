@@ -16,6 +16,7 @@ print(a>b)
 #logical operator (AND && , OR||)
 x= True
 y= False 
-print(x and y)
-print(x or y)
+print(x & y)
+print(x | y)
+print(not x)
 
