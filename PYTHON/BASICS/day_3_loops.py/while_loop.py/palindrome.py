@@ -5,6 +5,7 @@ if s==reversed_s:
     print("is palindrome")
 else:
     print("no palindrome")
+    
 #palindrome(using while loop)
 s=input("Enter the letter to check it is a palindrome: ")
 i=0

@@ -15,3 +15,11 @@ else:
     print("Enter a valid operation")
 
 
+"""
+What I learned today:
+1. How if-elif-else flows
+2. Why condition order matters
+3. How logical operators affect decisions
+"""
+
+
