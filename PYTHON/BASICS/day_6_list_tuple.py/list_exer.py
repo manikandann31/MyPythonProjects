@@ -22,7 +22,7 @@ names=["allen","tom","mose","allen","tom","mose","benny"]
 unique_name=[]
 for i in names:
     if i not in unique_name:
-        unique_name.append(i)
+        unique_name.append(i) 
 print("Thee unique list is:",unique_name)
 #separate a single list into even and odd list.
 #use a list numbers in above example
