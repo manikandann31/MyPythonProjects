@@ -50,7 +50,36 @@ SELECT
 from monthly_data
 ORDER BY category,enroll_month;
 
+--First Month vs Latest Month Performance
 
+with monthly_data as (                             --1st CTE to collect the count of enroll per category per month 
+SELECT c.category,
+        strftime('%Y-%m',e.enroll_date) as enroll_month,
+        count(*) as no_of_enrolls
+from enrollments as e 
+JOIN courses as c 
+    on c.course_id=e.course_id
+group by c.category,enroll_month
+),
+month_bounds as (                                  --2nd CTE which find the first enroll month and last enroll month 
+select category,
+        enroll_month,
+        no_of_enrolls,
+        first_value(enroll_month) over (
+            PARTITION BY category 
+            ORDER BY enroll_month
+            ) as first_month,
+        last_value(enroll_month) over (
+            PARTITION BY category
+            ORDER BY enroll_month
+            ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+            ) as last_month
+from monthly_data
+)
+SELECT *
+FROM month_bounds
+WHERE enroll_month IN (first_month, last_month)
+ORDER BY category, enroll_month;
 
 
 
